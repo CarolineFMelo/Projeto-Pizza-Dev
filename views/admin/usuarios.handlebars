@@ -1,0 +1,95 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+    <script src="../assets/js/admin.js" defer></script>
+</head>
+
+<header class="topo flex container-padding">
+    <img src="../assets/images/pizza-dev.png" alt="Pizza DEV" />
+    <nav class="menu">
+        <a href="/index">Pizzas</a>
+        <a href="/mensagens">Mensagens</a>
+        <a href="/usuarios" class="active">Usuários</a>
+        <a href="/login">Sair</a>
+    </nav>
+</header>
+<div class="pagina container">
+    <div class="cabecalho flex">
+        <a href="/cadastrar/usuario" class="botao">
+            Novo Usuário
+        </a>
+    </div>
+    <div class="tabela-responsiva">
+        <table>
+            <thead>
+                <tr>
+                    <th width="430">Nome completo</th>
+                    <th width="320">Usuário</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Ricardo Ramos de Oliveira
+                    </td>
+                    <td>
+                        ricardo.oliveira
+                    </td>
+                    <td>
+                        <a href="/editar/usuario" class="btn-editar">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/usuarios" class="btn-excluir">
+                            <i class="fa-regular fa-trash-can"></i> Excluir
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mateus Silva
+                    </td>
+                    <td>
+                        mateus.silva
+                    </td>
+                    <td>
+                        <a href="/editar/usuario" class="btn-editar">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/usuarios" class="btn-excluir">
+                            <i class="fa-regular fa-trash-can"></i> Excluir
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bárbara Pereira
+                    </td>
+                    <td>
+                        barbara.pereira
+                    </td>
+                    <td>
+                        <a href="/editar/usuario" class="btn-editar">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/usuarios" class="btn-excluir">
+                            <i class="fa-regular fa-trash-can"></i> Excluir
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
