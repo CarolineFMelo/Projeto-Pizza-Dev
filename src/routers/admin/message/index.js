@@ -2,9 +2,11 @@ const express = require('express');
 const message = express.Router();
 const { admin } = require('../../../controllers');
 
-message.get('/', (req, res) => {
+message.get('/', async (req, res) => {
+  const data = await admin.message.list();
   const dadosTemplate = {
-    title: 'Mensagens | Administração | Pizza DEV'
+    title: 'Mensagens | Administração | Pizza DEV',
+    data: data
   };
   res.render('admin/mensagens', dadosTemplate);
 });

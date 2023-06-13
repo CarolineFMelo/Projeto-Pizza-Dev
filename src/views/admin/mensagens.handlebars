@@ -35,82 +35,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        Ricardo Ramos de Oliveira
-                    </td>
-                    <td>
-                        ricardo.oliveira@ifsuldeminas.edu.br
-                    </td>
-                    <td>
-                        Teste 1
-                    </td>
-                    <td>
-                        Minha mensagem de teste
-                    </td>
-                    <td>
-                        <a href="/message/1" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Ricardo Ramos de Oliveira
-                    </td>
-                    <td>
-                        ricardo.oliveira@ifsuldeminas.edu.br
-                    </td>
-                    <td>
-                        Teste 2
-                    </td>
-                    <td>
-                        Minha mensagem de teste
-                    </td>
-                    <td>
-                        <a href="index.html" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Ricardo Ramos de Oliveira
-                    </td>
-                    <td>
-                        ricardo.oliveira@ifsuldeminas.edu.br
-                    </td>
-                    <td>
-                        Teste 3
-                    </td>
-                    <td>
-                        Minha mensagem de teste
-                    </td>
-                    <td>
-                        <a href="index.html" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Ricardo Ramos de Oliveira
-                    </td>
-                    <td>
-                        ricardo.ramos@ifsuldeminas.edu.br
-                    </td>
-                    <td>
-                        Teste 4
-                    </td>
-                    <td>
-                        Minha mensagem de teste
-                    </td>
-                    <td>
-                        <a href="index.html" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
+                {{#each data}}
+                    <tr>
+                        <td>
+                            {{nome}}
+                        </td>
+                        <td>
+                            {{email}}
+                        </td>
+                        <td>
+                            {{assunto}}
+                        </td>
+                        <td>
+                            {{mensagem}}
+                        </td>
+                        <td>
+                            <a href="/message/{{id}}" class="btn-excluir">
+                                <i class="fa-regular fa-trash-can"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>
