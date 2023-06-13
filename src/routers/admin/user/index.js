@@ -3,19 +3,20 @@ const { admin } = require('../../../controllers');
 const user = express.Router();
 
 user.get('/', async (req, res) => {
-  const data = await admin.user.list();
-  const dadosTemplate = {
+  res.render('admin/usuarios', {
     title: 'Usuários | Administração | Pizza DEV',
-    data: data
-  };
-  res.render('admin/usuarios', dadosTemplate);
+    data: await admin.user.list()
+  });
 });
 
+// ========================
+//    Register a user
+// ========================
+
 user.get('/register', (req, res) => {
-  const dadosTemplate = {
+  res.render('admin/cadastrar-usuario', {
     title: 'Cadastrar Usuário | Administração | Pizza DEV',
-  };
-  res.render('admin/cadastrar-usuario', dadosTemplate);
+  });
 });
 
 user.post('/register', async (req, res) => {
@@ -27,10 +28,24 @@ user.post('/register', async (req, res) => {
   } : {
     title: 'Usuários | Administração | Pizza DEV',
     success: true,
-    message: 'Cadastrado com sucesso'
+    message: 'Deletado com sucesso'
   });
 });
- 
+
+// ========================
+//    Delete a user
+// ========================
+
+user.get('/delete/:user', async (req, res) => {
+  await admin.user.delete(req.params.user);
+  res.redirect('/user');
+});
+
+
+// ========================
+//    Edit a user
+// ========================
+
 user.get('/edit', (req, res) => {
   const dadosTemplate = {
     title: 'Editar Usuário | Administração | Pizza DEV',

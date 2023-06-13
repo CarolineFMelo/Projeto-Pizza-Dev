@@ -8,4 +8,7 @@ module.exports = {
     const { nomeCompleto, usuario, senha } = req.body;
     return dataBase.query('INSERT INTO usuario (nome, usuario, senha) VALUES (?, ?, ?)', [nomeCompleto, usuario, senha]);
   },
+  delete: async (user) => {
+    return dataBase.query('DELETE FROM usuario WHERE usuario = ?', [user]);
+  },
 };
