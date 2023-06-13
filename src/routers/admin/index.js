@@ -12,7 +12,7 @@ admin.get('/admin', (req, res) => {
 });
 
 
-admin.get('/mensagens', (req, res) => {
+admin.get('/message', (req, res) => {
   const dadosTemplate = {
     title: 'Mensagens | Administração | Pizza DEV',
   };
