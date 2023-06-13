@@ -35,60 +35,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        Ricardo Ramos de Oliveira
-                    </td>
-                    <td>
-                        ricardo.oliveira
-                    </td>
-                    <td>
-                        <a href="/usuarios/editar" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/usuarios" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Mateus Silva
-                    </td>
-                    <td>
-                        mateus.silva
-                    </td>
-                    <td>
-                        <a href="/usuarios/editar" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/usuarios" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bárbara Pereira
-                    </td>
-                    <td>
-                        barbara.pereira
-                    </td>
-                    <td>
-                        <a href="/usuarios/editar" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/usuarios" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
+                {{#each data}}
+                    <tr>
+                        <td>
+                            {{nome}}
+                        </td>
+                        <td>
+                            {{usuario}}
+                        </td>
+                        <td>
+                            <a href="/usuarios/editar" class="btn-editar">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/usuarios" class="btn-excluir">
+                                <i class="fa-regular fa-trash-can"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>

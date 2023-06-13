@@ -1,9 +1,12 @@
 const express = require('express');
+const { admin } = require('../../../controllers');
 const user = express.Router();
 
-user.get('/', (req, res) => {
+user.get('/', async (req, res) => {
+  const data = await admin.user.list();
   const dadosTemplate = {
     title: 'Usuários | Administração | Pizza DEV',
+    data: data
   };
   res.render('admin/usuarios', dadosTemplate);
 });
@@ -13,6 +16,19 @@ user.get('/register', (req, res) => {
     title: 'Cadastrar Usuário | Administração | Pizza DEV',
   };
   res.render('admin/cadastrar-usuario', dadosTemplate);
+});
+
+user.post('/register', async (req, res) => {
+  const data = await admin.user.create(req);
+  res.render('admin/cadastrar-usuario', data.length === 0 ? {
+    title: 'Usuários | Administração | Pizza DEV',
+    error: true,
+    message: 'Erro para cadastrar'
+  } : {
+    title: 'Usuários | Administração | Pizza DEV',
+    success: true,
+    message: 'Cadastrado com sucesso'
+  });
 });
  
 user.get('/edit', (req, res) => {
