@@ -43,14 +43,20 @@ user.get('/delete/:user', async (req, res) => {
 
 
 // ========================
-//    Edit a user
+//    Update a user
 // ========================
 
-user.get('/edit', (req, res) => {
-  const dadosTemplate = {
+user.get('/update/:user', async (req, res) => {
+  const data = await admin.user.searchByUser(req.params.user);
+  res.render('admin/editar-usuario', {
     title: 'Editar Usuário | Administração | Pizza DEV',
-  };
-  res.render('admin/editar-usuario', dadosTemplate);
+    data: data[0]
+  });
+});
+
+user.post('/update/:user', async (req, res) => {
+  await admin.user.update(req, req.params.user);
+  res.redirect('/user');
 });
 
 module.exports = user;
