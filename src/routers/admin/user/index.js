@@ -8,14 +8,14 @@ user.get('/', (req, res) => {
   res.render('admin/usuarios', dadosTemplate);
 });
 
-user.get('/cadastrar', (req, res) => {
+user.get('/register', (req, res) => {
   const dadosTemplate = {
     title: 'Cadastrar Usuário | Administração | Pizza DEV',
   };
   res.render('admin/cadastrar-usuario', dadosTemplate);
 });
-
-user.get('/editar', (req, res) => {
+ 
+user.get('/edit', (req, res) => {
   const dadosTemplate = {
     title: 'Editar Usuário | Administração | Pizza DEV',
   };

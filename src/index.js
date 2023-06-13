@@ -8,6 +8,7 @@ const PORT = 3000;
 app.engine('handlebars', expressHandlebars.engine())
   .set('view engine', 'handlebars')
   .set('views', __dirname + '/views')
+  .use(express.urlencoded({ extended: true }))
   .use('/assets', express.static(__dirname + '/assets'))
   .use('/', router);
 

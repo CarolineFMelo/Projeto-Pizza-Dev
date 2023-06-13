@@ -5,7 +5,7 @@ async function getConnection() {
   const connection = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'senhamysql',
+    password: 'Dev@1234',
     database: 'pizzadev',
   });
   return connection;
