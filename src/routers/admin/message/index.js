@@ -11,6 +11,10 @@ message.get('/', async (req, res) => {
   res.render('admin/mensagens', dadosTemplate);
 });
 
+// ========================
+//   Register a message
+// ========================
+
 message.post('/', async (req, res) => {
   const data = await admin.message.create(req);
   if (data.length === 0) {
@@ -25,22 +29,13 @@ message.post('/', async (req, res) => {
   }
 });
 
-message.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const data = await admin.message.delete(id);
-  const dadosTemplate = data.length === 0 ?
-    { 
-      title: 'Mensagens | Administração | Pizza DEV',
-      error: true,
-      message: 'Erro ao deletar'
-    } :
-    {
-      title: 'Mensagens | Administração | Pizza DEV',
-      success: true,
-      message: 'Deletado com sucesso'
-    };
+// ========================
+//   Delete a message
+// ========================
 
-  res.render('admin/mensagens', dadosTemplate);
+message.get('/:id', async (req, res) => {
+  await admin.message.delete(req.params.id);
+  res.redirect('/mensagens');
 });
 
 module.exports = message;
