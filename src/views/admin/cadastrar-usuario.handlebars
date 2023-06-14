@@ -22,17 +22,24 @@
 <div class="pagina container">
     <div class="cabecalho flex bordered">
         <h1>Cadastrar Usuário</h1>
-        <a href="/usuarios" class="botao">
+        <a href="/user" class="botao">
             Voltar
         </a>
     </div>
 
-    <div class="msg-sucesso">
-        Exemplo de mensagem de sucesso!
-    </div>
-    <div class="msg-erro">
-        Exemplo de mensagem de erro!
-    </div>
+    {{#with response}}
+        {{#if error}}
+            <div class="msg-erro">
+                {{ message }}
+            </div>
+        {{/if}}
+        {{#unless error}}
+            <div class="msg-sucesso">
+                {{ message }}
+            </div>
+        {{/unless}}
+    {{/with}}
+    
 
     <form action="" method="post">
         <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-field" placeholder="* Nome completo" />

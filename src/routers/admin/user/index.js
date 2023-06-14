@@ -15,20 +15,18 @@ user.get('/', async (req, res) => {
 
 user.get('/register', (req, res) => {
   res.render('admin/cadastrar-usuario', {
-    title: 'Cadastrar Usuário | Administração | Pizza DEV',
+    title: 'Cadastrar Usuário | Administração | Pizza DEV'
   });
 });
 
 user.post('/register', async (req, res) => {
   const data = await admin.user.create(req);
-  res.render('admin/cadastrar-usuario', data.length === 0 ? {
+  res.render('admin/cadastrar-usuario', {
     title: 'Usuários | Administração | Pizza DEV',
-    error: true,
-    message: 'Erro para cadastrar'
-  } : {
-    title: 'Usuários | Administração | Pizza DEV',
-    success: true,
-    message: 'Deletado com sucesso'
+    response: {
+      error: data.error || false,
+      message: data.error ? data.message : 'Cadastrado com sucesso!'
+    }
   });
 });
 

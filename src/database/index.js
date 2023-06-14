@@ -13,9 +13,14 @@ async function getConnection() {
 
 async function query(sql = '', values = []) {
   const conn = await getConnection();
-  const result = await conn.query(sql, values);
-  conn.end();
-  return result[0];
+  try {
+    const result = await conn.query(sql, values);
+    return result[0];
+  } catch (error) {
+    return {error: true, message: error};
+  } finally {
+    conn.end();
+  }
 }
 
 module.exports = {

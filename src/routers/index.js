@@ -16,6 +16,7 @@ router.get('/connection', async (req, res) => {
   res.send('Conexão realizada com sucesso!');
 });
 
+
 router.use('/', admin);
 
 module.exports = router;
