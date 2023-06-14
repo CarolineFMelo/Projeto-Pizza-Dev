@@ -15,16 +15,11 @@
 <div class="login">
     <h1>Login Admin</h1>
     
-    {{#if success}}
-        <div class="msg-sucesso">
-            {{{message}}}
-        </div>
-    {{/if}}
-    {{#if error}}
+    {{#with response}}
         <div class="msg-erro">
-            {{{message}}}
+            {{ message }}
         </div>
-    {{/if}}
+    {{/with}}
 
     <form method="POST">
         <input type="text" name="usuario" id="usuario" class="input-field" placeholder="* Usuário" />

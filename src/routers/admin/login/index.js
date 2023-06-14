@@ -15,8 +15,9 @@ login.post('/', async(req, res) => {
   if (data.length === 0) {
     res.render('admin/login', {
       title: 'Login | Administração | Pizza DEV',
-      error: true,
-      message: 'Erro'
+      response: {
+        message: 'Usuário ou senha inválido'
+      }
     });
   } else {
     res.redirect('/admin');

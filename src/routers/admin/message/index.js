@@ -16,17 +16,8 @@ message.get('/', async (req, res) => {
 // ========================
 
 message.post('/', async (req, res) => {
-  const data = await admin.message.create(req);
-  if (data.length === 0) {
-    console.log('Error');
-    res.render('/', {
-      title: 'Pizza DEV',
-      error: true,
-      message: 'Erro ao enviar'
-    });
-  } else {
-    res.redirect('/');
-  }
+  await admin.message.create(req);
+  res.redirect('/');
 });
 
 // ========================
@@ -35,7 +26,7 @@ message.post('/', async (req, res) => {
 
 message.get('/:id', async (req, res) => {
   await admin.message.delete(req.params.id);
-  res.redirect('/mensagens');
+  res.redirect('/message');
 });
 
 module.exports = message;
