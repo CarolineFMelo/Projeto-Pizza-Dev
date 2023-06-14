@@ -21,7 +21,7 @@
 </header>
 <div class="pagina container">
     <div class="cabecalho flex">
-        <a href="/pizza/register" class="botao">
+        <a href="/pizza/create" class="botao">
             Nova Pizza
         </a>
     </div>
@@ -38,118 +38,36 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <img src="https://via.placeholder.com/75x75" alt="" />
-                    </td>
-                    <td>
-                        <h3>Pizza de Calabresa</h3>
-                        <p>Ingredientes: Calabresa, Molho de Tomate e Cebola</p>
-                    </td>
-                    <td>
-                        R$ 15,00
-                    </td>
-                    <td>
-                        R$ 20,00
-                    </td>
-                    <td>
-                        R$ 35,00
-                    </td>
-                    <td>
-                        <a href="/pizza/update" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/admin" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="https://via.placeholder.com/75x75" alt="" />
-                    </td>
-                    <td>
-                        <h3>Pizza de Calabresa</h3>
-                        <p>Ingredientes: Calabresa, Molho de Tomate e Cebola</p>
-                    </td>
-                    <td>
-                        R$ 15,00
-                    </td>
-                    <td>
-                        R$ 20,00
-                    </td>
-                    <td>
-                        R$ 35,00
-                    </td>
-                    <td>
-                        <a href="/editar/pizza" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/index" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="https://via.placeholder.com/75x75" alt="" />
-                    </td>
-                    <td>
-                        <h3>Pizza de Calabresa</h3>
-                        <p>Ingredientes: Calabresa, Molho de Tomate e Cebola</p>
-                    </td>
-                    <td>
-                        R$ 15,00
-                    </td>
-                    <td>
-                        R$ 20,00
-                    </td>
-                    <td>
-                        R$ 35,00
-                    </td>
-                    <td>
-                        <a href="/editar/pizza" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/index" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="https://via.placeholder.com/75x75" alt="" />
-                    </td>
-                    <td>
-                        <h3>Pizza de Calabresa</h3>
-                        <p>Ingredientes: Calabresa, Molho de Tomate e Cebola</p>
-                    </td>
-                    <td>
-                        R$ 15,00
-                    </td>
-                    <td>
-                        R$ 20,00
-                    </td>
-                    <td>
-                        R$ 35,00
-                    </td>
-                    <td>
-                        <a href="/editar/pizza" class="btn-editar">
-                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/index" class="btn-excluir">
-                            <i class="fa-regular fa-trash-can"></i> Excluir
-                        </a>
-                    </td>
-                </tr>
+                {{#each data}}
+                    <tr>
+                        <td>
+                            <img src="../assets/images/{{foto}}" alt="" />
+                        </td>
+                        <td>
+                            <h3>{{nome}}</h3>
+                            <p>{{descricao}}</p>
+                        </td>
+                        <td>
+                            R$ {{precoBrotinho}}
+                        </td>
+                        <td>
+                            R$ {{precoMedia}}
+                        </td>
+                        <td>
+                            R$ {{precoGrande}}
+                        </td>
+                        <td>
+                            <a href="/pizza/update/{{id}}" class="btn-editar">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/pizza/delete/{{id}}" class="btn-excluir">
+                                <i class="fa-regular fa-trash-can"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>

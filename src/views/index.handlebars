@@ -52,62 +52,22 @@
             <h2 class="title">Cardápio</h2>
             <p class="subtitle">Confira abaixo as nossas opções de pizzas:</p>
             <div class="lista-pizzas">
-                <div class="pizza">
-                    <img src="https://via.placeholder.com/155x155" alt="Pizza de Calabresa" />
-                    <div>
-                        <h3 class="title">Pizza de Calabresa</h3>
-                        <p>Calabresa, Molho de Tomate com Cebola.</p>
+                {{#each data}}
+                    <div class="pizza">
+                        <img src="../assets/images/{{foto}}" alt="{{nome}}" />
+                        <div>
+                            <h3 class="title">{{nome}}</h3>
+                            <p>{{descricao}}</p>
 
-                        <div class="preco">
-                            <strong class="title-preco">Preço:</strong><br>
-                            Brotinho (4 pedaços): <strong>R$ 0,00</strong><br>
-                            Média (6 pedaços): <strong>R$ 0,00</strong><br>
-                            Grande (8 pedaços): <strong>R$ 0,00</strong>
+                            <div class="preco">
+                                <strong class="title-preco">Preço:</strong><br>
+                                Brotinho (4 pedaços): <strong>R$ {{precoBrotinho}}</strong><br>
+                                Média (6 pedaços): <strong>R$ {{precoMedia}}</strong><br>
+                                Grande (8 pedaços): <strong>R$ {{precoGrande}}</strong>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="pizza">
-                    <img src="https://via.placeholder.com/155x155" alt="Pizza de Calabresa" />
-                    <div>
-                        <h3 class="title">Pizza de Calabresa</h3>
-                        <p>Calabresa, Molho de Tomate com Cebola.</p>
-
-                        <div class="preco">
-                            <strong class="title-preco">Preço:</strong><br>
-                            Brotinho (4 pedaços): <strong>R$ 0,00</strong><br>
-                            Média (6 pedaços): <strong>R$ 0,00</strong><br>
-                            Grande (8 pedaços): <strong>R$ 0,00</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="pizza">
-                    <img src="https://via.placeholder.com/155x155" alt="Pizza de Calabresa" />
-                    <div>
-                        <h3 class="title">Pizza de Calabresa</h3>
-                        <p>Calabresa, Molho de Tomate com Cebola.</p>
-
-                        <div class="preco">
-                            <strong class="title-preco">Preço:</strong><br>
-                            Brotinho (4 pedaços): <strong>R$ 0,00</strong><br>
-                            Média (6 pedaços): <strong>R$ 0,00</strong><br>
-                            Grande (8 pedaços): <strong>R$ 0,00</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="pizza">
-                    <img src="https://via.placeholder.com/155x155" alt="Pizza de Calabresa" />
-                    <div>
-                        <h3 class="title">Pizza de Calabresa</h3>
-                        <p>Calabresa, Molho de Tomate com Cebola.</p>
-
-                        <div class="preco">
-                            <strong class="title-preco">Preço:</strong><br>
-                            Brotinho (4 pedaços): <strong>R$ 0,00</strong><br>
-                            Média (6 pedaços): <strong>R$ 0,00</strong><br>
-                            Grande (8 pedaços): <strong>R$ 0,00</strong>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </section>

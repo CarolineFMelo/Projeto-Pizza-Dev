@@ -4,14 +4,14 @@ const login = require('./login');
 const message = require('./message');
 const user = require('./user');
 const pizza = require('./pizza');
+const controller = require('../../controllers');
 
-admin.get('/admin', (req, res) => {
-  const dadosTemplate = {
+admin.get('/admin', async (req, res) => {
+  res.render('admin/index', {
     title: 'Nossas Pizzas | Administração | Pizza DEV',
-  };
-  res.render('admin/index', dadosTemplate);
+    data: await controller.admin.pizza.list()
+  });
 });
-
 
 admin.use('/login', login);
 admin.use('/message', message);

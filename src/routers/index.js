@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const admin = require('./admin');
 const bd = require('../database');
+const controller = require('../controllers');
 
-router.get('/', (req, res) => {
-  const dadosTemplate = {
+router.get('/', async (req, res) => {
+  res.render('index', {
     title: 'Pizza DEV',
-  };
-  res.render('index', dadosTemplate);
+    data: await controller.admin.pizza.list()
+  });
 });
 
 router.get('/connection', async (req, res) => {

@@ -10,16 +10,16 @@ user.get('/', async (req, res) => {
 });
 
 // ========================
-//    Register a user
+//    create a user
 // ========================
 
-user.get('/register', (req, res) => {
+user.get('/create', (req, res) => {
   res.render('admin/cadastrar-usuario', {
     title: 'Cadastrar Usuário | Administração | Pizza DEV'
   });
 });
 
-user.post('/register', async (req, res) => {
+user.post('/create', async (req, res) => {
   const data = await admin.user.create(req);
   res.render('admin/cadastrar-usuario', {
     title: 'Usuários | Administração | Pizza DEV',

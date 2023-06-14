@@ -12,7 +12,7 @@ message.get('/', async (req, res) => {
 });
 
 // ========================
-//   Register a message
+//   create a message
 // ========================
 
 message.post('/', async (req, res) => {
