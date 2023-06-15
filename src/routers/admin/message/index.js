@@ -12,15 +12,6 @@ message.get('/', async (req, res) => {
 });
 
 // ========================
-//   create a message
-// ========================
-
-message.post('/', async (req, res) => {
-  await admin.message.create(req);
-  res.redirect('/');
-});
-
-// ========================
 //   Delete a message
 // ========================
 
