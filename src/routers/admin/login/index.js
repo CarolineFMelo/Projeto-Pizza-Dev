@@ -11,7 +11,7 @@ login.get('/', (req, res) => {
 });
 
 login.post('/', async(req, res) => {
-  const data = await admin.login.login(req);
+  const data = await admin.login.login(req, res);
   if (data.length > 0) {
     req.session.user = data[0];
     res.redirect('/admin');
