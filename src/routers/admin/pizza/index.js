@@ -46,7 +46,19 @@ pizza.get('/update/:id', async (req, res) => {
 });
 
 pizza.post('/update/:id', async (req, res) => {
-  await admin.pizza.update(req, req.params.id);
+  const data = await admin.pizza.update(req, req.params.id);
+  if (data.error) {
+    const search = await admin.pizza.searchById(req.params.id);
+    res.render('admin/editar-pizza', {
+      title: 'Editar Pizza | Administração | Pizza DEV',
+      data: search[0],
+      response: {
+        error: data.error,
+        message: data.message
+      }
+    });
+    return;
+  }
   res.redirect('/admin');
 });
 

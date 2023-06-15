@@ -27,6 +27,19 @@
         </a>
     </div>
 
+    {{#with response}}
+        {{#if error}}
+            <div class="msg-erro">
+                {{ message }}
+            </div>
+        {{/if}}
+        {{#unless error}}
+            <div class="msg-sucesso">
+                {{ message }}
+            </div>
+        {{/unless}}
+    {{/with}}
+
     <form action="" method="post">
         <input type="text" name="nomePizza" id="nomePizza" class="input-field" placeholder="* Nome da Pizza" value="{{data.nome}}" required/>
         <textarea name="descricao" id="descricao" cols="1" rows="6" class="input-field"

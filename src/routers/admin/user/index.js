@@ -53,7 +53,19 @@ user.get('/update/:user', async (req, res) => {
 });
 
 user.post('/update/:user', async (req, res) => {
-  await admin.user.update(req, req.params.user);
+  const data = await admin.user.update(req, req.params.user);
+  if (data.error) {
+    const search  = await admin.user.searchByUser(req.params.user);
+    res.render('admin/editar-usuario', {
+      title: 'Editar Usuário | Administração | Pizza DEV',
+      data: search[0],
+      response: {
+        error: data.error,
+        message: data.message
+      }
+    });
+    return;
+  }
   res.redirect('/user');
 });
 
