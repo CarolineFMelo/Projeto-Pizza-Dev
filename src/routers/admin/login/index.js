@@ -12,15 +12,16 @@ login.get('/', (req, res) => {
 
 login.post('/', async(req, res) => {
   const data = await admin.login.login(req);
-  if (data.length === 0) {
+  if (data.length > 0) {
+    req.session.user = data[0];
+    res.redirect('/admin');
+  } else {
     res.render('admin/login', {
       title: 'Login | Administração | Pizza DEV',
       response: {
         message: 'Usuário ou senha inválido'
       }
     });
-  } else {
-    res.redirect('/admin');
   }
 });
 
