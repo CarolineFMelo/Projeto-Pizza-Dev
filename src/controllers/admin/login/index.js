@@ -4,7 +4,7 @@ const uuidv4 = require('uuid').v4;
 module.exports = {
   login: async (req, res) => {
     const { usuario, senha, manterLogado } = req.body;
-    const data = await dataBase.query('SELECT * FROM usuario WHERE usuario = ? AND senha = AES_ENCRYPT(?,?)', [usuario, senha, 'set']);
+    const data = await dataBase.query('SELECT * FROM usuario WHERE usuario = ? AND senha = AES_ENCRYPT(?,?)', [usuario, senha, 'pwd']);
     if (manterLogado) {
       const token = uuidv4();
       await dataBase.query('UPDATE usuario SET token = ? WHERE usuario = ?', [token, data[0].usuario]);
