@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 -- Copiando dados para a tabela pizzadev.usuario: ~1 rows (aproximadamente)
 INSERT INTO `usuario` (`nome`, `usuario`, `senha`, `token`) VALUES
-	('admin', 'admin', _binary 0x22797d8a1b4ae09a9d45a11fa512d9b8, NULL);
+	('admin', 'admin', AES_ENCRYPT('admin', 'pwd'), NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
